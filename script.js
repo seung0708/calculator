@@ -4,20 +4,17 @@ const input = document.querySelector('input')
 const buttons = document.querySelectorAll('button')
 buttons.forEach(button => {
     let value = button.value;
-    if (value === 'X' || value === '/' || value === 'C' || value === '=' || value === '+' || value === '-') {
-        value = button.value
-        console.log(value)
-    }
-    if (value.includes('.')) {
-        value = parseFloat(button.value)
-    }
-
-    if (typeof parseInt(value) === 'number') { 
-        value = parseInt(value);
-    }
-
+    if (value === 'X' || value === '/' || value === '+' || value === '-') {
+        value = button.value;
+    } 
+   
     button.addEventListener('click', () => {
-        input.value += value
-        console.log(input.value)       
+        if (value === 'C') {
+            input.value = ''
+        } else {
+            input.value += value
+        }
+        
     })
 })
+
